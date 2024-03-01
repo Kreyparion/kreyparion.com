@@ -15,7 +15,7 @@ class TreeContainer extends Component {
     };
 
     running = false;
-    realMax = 11;
+    realMax = 9;
     svgRef = React.createRef();
 
     componentDidMount() {
