@@ -1,76 +1,59 @@
-import {Fragment, createElement, useEffect, useState} from 'react'
-import * as prod from 'react/jsx-runtime'
-
-import rehypeHighlight from 'rehype-highlight'
-import rehypeMathJaxSvg from 'rehype-mathjax'
-import rehypeReact from 'rehype-react'
-
-import remarkMath from 'remark-math'
+import PropTypes from 'prop-types';
+import { createElement, Fragment, useEffect, useState } from 'react';
+import { unified } from 'unified';
+import rehypeReact from 'rehype-react';
 import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype'
-import remarkGfm from 'remark-gfm'
-import frontmatter from 'remark-frontmatter'
-import parseFrontmatter from 'remark-parse-yaml'
+import remarkMath from 'remark-math';
+import remarkRehype from 'remark-rehype';
+import rehypeMathJaxSvg from 'rehype-mathjax';
+import wikiLinkPlugin from 'remark-wiki-link-plus';
+import remarkImages from 'remark-images';
+import rehypeHighlight from 'rehype-highlight';
+import CustomLink from './CustomLink';
 
-import {unified} from 'unified'
-
+import * as prod from 'react/jsx-runtime'
 
 // @ts-expect-error: the react types are missing.
 const production = {Fragment: prod.Fragment, jsx: prod.jsx, jsxs: prod.jsxs}
 
 
-/**
- * @param {string} text
- * @returns {JSX.Element}
- */
-export function useProcessor(text) {
-  const [Content, setContent] = useState(createElement(Fragment))
-  const [Attributes, setAttributes] = useState({})
+export default function PrintMarkdown({ text }) {
+  const [Content, setContent] = useState(Fragment);
 
-  useEffect(
-    function () {
-      ;(async function () {
-        const file = await unified()
-          .use(remarkParse)
-          .use(frontmatter)
-          .use(parseFrontmatter)
-          .use(function () { return function (tree) { 
-            if (tree.children && tree.children[0] && tree.children[0].type === 'yaml') {
-              setAttributes(YAML2JSON(tree.children[0].value))
-            }
-          } })
-          .use(remarkMath)
-          .use(remarkGfm)
-          .use(remarkRehype)
-          .use(rehypeMathJaxSvg) // transform text in math html classes
-          .use(rehypeHighlight) // highlight code tag
-          .use(rehypeReact, production)
-          .process(text)
-
-        setContent(file.result)
-      })()
-    },
-    [text]
-  )
-
-  return [Content, Attributes]
+  useEffect(() => {
+    unified()
+      .use(remarkParse) // Parse remark
+      .use(remarkMath)
+      .use(wikiLinkPlugin, {
+        hrefTemplate: link => link,
+        pageResolver: name => [name],
+      })
+      .use(remarkImages)
+      .use(remarkRehype)
+      .use(rehypeMathJaxSvg) // transform text in math html classes
+      .use(rehypeHighlight) // highlight code tag
+      .use(rehypeReact, production, {
+        createElement,
+        Fragment,
+        components: {
+          a: CustomLink,
+        },
+      })
+      /*
+      .use(remarkRehype)
+      .use(remark2react, {
+        remarkReactComponents: {
+          a: CustomLink,
+        },
+        createElement,
+        Fragment
+      })
+      */
+      .process(text)
+      .then(file => {
+        setContent(file.result);
+      });
+  }, [text]);
+  return Content;
 }
 
-
-function YAML2JSON(yaml) {
-  return JSON.parse(
-    JSON.stringify(
-      yaml
-        .split('\n')
-        .map((line) => line.split(':'))
-        .reduce((acc, [key, value]) => ({...acc, [key]: value}), {})
-    )
-  )
-}
-
-
-/*
-export default function PrintMarkdown({text}) {
-  console.log(text)
-  return useProcessor(text)
-}*/

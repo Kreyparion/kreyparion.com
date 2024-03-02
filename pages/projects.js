@@ -1,21 +1,57 @@
 import React from 'react';
-import MdRenderer from '../components/md_renderer';
+import PrintMarkdown from '../components/PrintMarkdown';
 import { Container } from 'react-bootstrap';
+import getSortedProjectsData from '../lib/projects';
 
-const Projects = () => (
-    <div>
+
+export default function Projects({ allProjectsData }) {
+    return (
+      <div>
         <h1>Projects</h1>
-        <p>
-            Display the markdown files to present my projects 
-            Display all the tags : techs worked on, dates
-        </p>
-        <br />
-        <br />
-        <br />
-        <Container>
-            <MdRenderer/>
-        </Container>
-    </div>
-);
+        <ul>
+          {allProjectsData.map(({ id, date, title, desc }) => (
+            <li key={id}>
+              {title}
+              <br />
+              {date}
+              <br />
+              <PrintMarkdown text={desc} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+}
 
-export default Projects;
+/*
+export async function getStaticPaths() {
+    const allProjectpagesData = await getProjectpageData();
+    const paths = createPaths(allProjectpagesData.pages);
+    return {
+      paths,
+      fallback: false, // See the "fallback" section below
+    };
+  }*/
+  
+export async function getStaticProps() {
+    const allProjectsData = getSortedProjectsData();
+
+    return {
+        props: {
+        allProjectsData,
+        },
+    };
+}
+  
+/*
+ProjectTree.propTypes = {
+    allProjectpagesData: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+      })
+    ),
+};*/
