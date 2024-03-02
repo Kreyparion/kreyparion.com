@@ -1,24 +1,16 @@
 import React from 'react';
-import PrintMarkdown from '../components/PrintMarkdown';
 import { Container } from 'react-bootstrap';
 import getSortedProjectsData from '../lib/projects';
+import PropTypes from 'prop-types';
+
+import ProjectTile from '../components/ProjectTile';
 
 
 export default function Projects({ allProjectsData }) {
     return (
       <div>
         <h1>Projects</h1>
-        <ul>
-          {allProjectsData.map(({ id, date, title, desc }) => (
-            <li key={id}>
-              {title}
-              <br />
-              {date}
-              <br />
-              <PrintMarkdown text={desc} />
-            </li>
-          ))}
-        </ul>
+        <Container>{allProjectsData.map(ProjectTile)}</Container>
       </div>
     );
 }
@@ -43,15 +35,15 @@ export async function getStaticProps() {
     };
 }
   
-/*
-ProjectTree.propTypes = {
+
+Projects.propTypes = {
     allProjectpagesData: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        author: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        abstract: PropTypes.string.isRequired,
         content: PropTypes.string.isRequired,
       })
     ),
-};*/
+};
