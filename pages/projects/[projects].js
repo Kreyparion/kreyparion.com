@@ -62,7 +62,7 @@ export async function getStaticProps() {
         },
     };
 }
-  
+
 
 Post.propTypes = {
     allProjectpagesData: PropTypes.arrayOf(

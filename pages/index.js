@@ -3,7 +3,13 @@ import TreeComponent from '../components/TreeComponent';
 import { Container } from 'react-bootstrap';
 import styles from './index.module.css';
 import ClickableCV from '../components/ClickableCV';
-const Home = () => (
+import Timeline from '../components/Timeline';
+
+import getSortedCareerData from '../lib/career';
+import PropTypes from 'prop-types';
+
+const Home = ({ allCareerData }) => (
+    
     <>  <div className={styles.banner}>
             <Container>
                 <br />
@@ -24,15 +30,30 @@ const Home = () => (
         <Container>
             <ClickableCV />
 
-            <p>
-                Second part : last 3 projects 
-            </p>
-            <p>
-                Third part : last 3 competitions
-            </p>
-            
+            <Timeline allCareerData={allCareerData} />
         </Container>
     </>
 );
 
 export default Home;
+
+export async function getStaticProps() {
+    const allCareerData = getSortedCareerData();
+
+    return {
+        props: {
+        allCareerData,
+        },
+    };
+}
+
+Timeline.propTypes = {
+    allCareerData: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        abstract: PropTypes.string.isRequired,
+      })
+    ),
+};

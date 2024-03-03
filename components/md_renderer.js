@@ -62,10 +62,10 @@ function MDComponent({posts}) {
 export default MdRenderer;
 
 */
-
+/*
 export default function MdRenderer() {
     return (
         <div className="markdown-body">
         </div>
         );
-}
+}*/

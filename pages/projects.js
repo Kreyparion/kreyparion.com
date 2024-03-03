@@ -15,15 +15,6 @@ export default function Projects({ allProjectsData }) {
     );
 }
 
-/*
-export async function getStaticPaths() {
-    const allProjectpagesData = await getProjectpageData();
-    const paths = createPaths(allProjectpagesData.pages);
-    return {
-      paths,
-      fallback: false, // See the "fallback" section below
-    };
-  }*/
   
 export async function getStaticProps() {
     const allProjectsData = getSortedProjectsData();
