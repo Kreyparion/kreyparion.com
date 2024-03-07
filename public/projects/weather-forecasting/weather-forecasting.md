@@ -1,10 +1,15 @@
 ---
 date: 19-09-2021
 title : Short Term Weather Forcasting
+tags: ["Computer Vision", "Deep Learning", "Weather Forcasting"]
+stags: ["CV", "DL", "Weather Forcasting"]
+links: ["https://github.com/Kreyparion/Short-Term-Weather-Forcasting-with-CV"]
+linksDescription: ["Github"]
+image: "unet.png"
 ---
 ## Abstract
 
-Short-term cloud density prediction using Satellite images and Computer Vision
+Short-term cloud density prediction using Satellite images and Computer Vision. The prediction was made using a U-net and a U-net mixed with LSTM.
 
 # Short Term Weather Forcasting
 Short-term cloud density prediction using Satellite images and Computer Vision

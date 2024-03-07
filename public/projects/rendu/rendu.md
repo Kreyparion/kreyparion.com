@@ -7,6 +7,10 @@ date: 29-09-2023
 author: Julien Cardinal & Eliott Py
 lang: fr-FR
 summary: Premier TP sur Spark
+tags: ["Spark", "Distributed Computing", "Algo"]
+stags: ["Spark", "Distributed Computing", "Algorithmics"]
+links: []
+linksDescription: []
 ---
 # TP-1 : Algorithmique distribuée en Spark
          

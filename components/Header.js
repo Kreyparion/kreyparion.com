@@ -15,7 +15,6 @@ function NavLink({ href, children, eventKey }) {
     [styles.isActive]:
       Router.location === href,
   });
-  console.log(href);
 
   return (
     <Nav.Item>

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 
 
 export default function CustomLink({ children, href }) {
-  console.log('href', href);
   return href.startsWith('/') || href === '' ? (
     <Link path="/">
       <a>{children}</a>

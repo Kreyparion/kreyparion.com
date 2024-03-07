@@ -1,6 +1,10 @@
 ---
 date: 19-09-2021
 title : Premier TP sur Spark
+tags: ["Big Data", "Spark", "RDD"]
+stags: ["BD", "Spark", "RDD"]
+links: []
+linksDescription: []
 ---
 
 ## Abstract

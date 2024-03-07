@@ -14,7 +14,7 @@ import remarkImages from 'remark-images';
 import rehypeHighlight from 'rehype-highlight';
 import CustomLink from './CustomLink';
 import * as prod from 'react/jsx-runtime'
-
+import style from './Markdown.module.css';
 
 
 
@@ -42,16 +42,17 @@ export default function PrintMarkdown({ text, id }) {
       
       
       
-      //.use(rehypeMathJaxSvg) // transform text in math html classes
+      .use(rehypeMathJaxSvg) // transform text in math html classes
       .use(rehypeHighlight) // highlight code tag
-      .use(() => tree => {
-        console.log(tree);
-      })
+      // .use(() => tree => {
+      //   console.log(tree);
+      // })
       .use(rehypeReact, {
         createElement,
         components: {
           a: CustomLink,
           img: ({ src, ...rest }) => <img src={id +"/" + src} {...rest} />,
+          p: ({ children, ...rest }) => <p className={style.paragraph} {...rest}>{children}</p>,
         },
         Fragment,
         jsx: prod.jsx,
