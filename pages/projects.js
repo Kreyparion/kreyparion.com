@@ -9,7 +9,10 @@ import ProjectTile from '../components/ProjectTile';
 export default function Projects({ allProjectsData }) {
     return (
       <div>
-        <h1>Projects</h1>
+        <br />
+        <br />
+        <br />
+        <br />
         <Container>{allProjectsData.map(ProjectTile)}</Container>
       </div>
     );

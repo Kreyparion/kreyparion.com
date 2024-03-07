@@ -18,7 +18,7 @@ import * as prod from 'react/jsx-runtime'
 
 
 
-export default function PrintMarkdown({ text }) {
+export default function PrintMarkdown({ text, id }) {
   const [Content, setContent] = useState(Fragment);
 
   useEffect(() => {
@@ -51,10 +51,9 @@ export default function PrintMarkdown({ text }) {
         createElement,
         components: {
           a: CustomLink,
-          img: ({ src, alt }) => <img src={"rendu/" + src} alt={alt} />,
+          img: ({ src, ...rest }) => <img src={id +"/" + src} {...rest} />,
         },
         Fragment,
-        
         jsx: prod.jsx,
         jsxs: prod.jsxs,
       })

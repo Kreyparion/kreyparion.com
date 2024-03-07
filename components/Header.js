@@ -49,7 +49,7 @@ export default function Header() {
         <Navbar.Brand href='/' as={Nav.Link}>
           <img src='/assets/android-chrome-512x512.png' alt='logo' className={styles.logo} />
         </Navbar.Brand>
-        <Navbar.Text className={styles.text}>
+        <Navbar.Text className={styles.text} href='/' as={Nav.Link}>
           Julien Cardinal
         </Navbar.Text>
 

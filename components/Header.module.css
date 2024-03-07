@@ -20,6 +20,9 @@
 	font-family: 'Lato', sans-serif;
 	color: white;
 }
+.text:hover {
+	color: white;
+}
 
 
 .link:hover {

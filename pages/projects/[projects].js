@@ -37,7 +37,7 @@ export default function Post({ allProjectsData }) {
         <br />
         <br />
         <Container>
-            <PrintMarkdown text={project.content} />
+            <PrintMarkdown text={project.content} id={project.id}/>
         </Container>
       </div>
     );

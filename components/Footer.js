@@ -282,7 +282,7 @@ export default function Footer(props) {
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <span >
               © 2023-2024 - Property of Julien Cardinal</span>
-            <a href='https://github.com/Kreyparion/kreyparion.github.io' style={{textDecoration: "none"}}>
+            <a href='https://github.com/Kreyparion/kreyparion.com' style={{textDecoration: "none"}}>
               Website Source Code
             </a>
           </div>
