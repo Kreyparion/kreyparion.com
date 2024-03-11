@@ -8,4 +8,4 @@ tags: [computer science, data science, artificial intelligence, software enginee
 
 ## Abstract
 
-I am currently studying at CentraleSupélec, a top French engineering school. I am following the Data Science and Artificial Intelligence major.
+I spent 6 month studying at LMU, in the heart of Munich. I followed the Computer Science Master 1 program. This semester was a great opportunity to learn about the German culture and to improve my German.

@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
  
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faSchool, faProjectDiagram, faUsers, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { Badge } from 'react-bootstrap';
+import style from './Timeline.module.css';
+
 
 export default function Timeline({ allCareerData }) {
     const types = ['education', 'work', 'project', 'association', 'competition'];
@@ -29,7 +32,13 @@ export default function Timeline({ allCareerData }) {
                             iconStyle={{ background: colors[types.indexOf(career.type)], color: '#fff' }}
                             icon={<FontAwesomeIcon icon={icons[types.indexOf(career.type)]} />}
                         >
-                            <h3 className="vertical-timeline-element-title">{career.title}</h3>
+                            <h3 className={style.title}>{career.title}</h3>
+                            <div className={style.compagny}><i>{career.company}</i></div>
+                            {career.tags.map((tag, index) => (
+                                <Badge key={index} variant="primary" className={style.Badge}>
+                                    {tag}
+                                </Badge>
+                            ))}
                             <p>{career.abstract}</p>
                         </VerticalTimelineElement>
                     ))}
