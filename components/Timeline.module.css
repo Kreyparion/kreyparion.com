@@ -11,3 +11,7 @@
 .Badge{
     margin: 1px;
 }
+
+.timelineElement .vertical-timeline-element-content {
+    border-top: 1px solid #000;
+}

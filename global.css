@@ -50,3 +50,8 @@ table tr {
 table tr:nth-child(2n) {
     background-color: #f8f8f8
 }
+
+.vertical-timeline-element-content{
+  border-left: 1px solid #eee;
+  border-right: 1.5px solid #ddd;
+}

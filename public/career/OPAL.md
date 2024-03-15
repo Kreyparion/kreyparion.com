@@ -8,4 +8,3 @@ tags: [Complexity, Algorithms, Graph Theory, Optimization]
 
 ## Abstract
 
-I am currently studying at Lorraine University.
