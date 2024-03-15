@@ -5,7 +5,7 @@ tags: ["Optimization", "Mixed Integer Linear Programming", "Tabu Search", "Genet
 stags: ["Optimization", "MILP", "Tabu Search", "GA"]
 links: ["https://github.com/Kreyparion/Projet_Ordonnancement"]
 linksDescription: ["Github"]
-image: ""
+image: "OneMachineSchedule.png"
 ---
 
 ## Abstract

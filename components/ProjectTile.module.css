@@ -54,6 +54,7 @@
 .imagecontainer{
     margin: 15px;
     justify-content: flex-end;
+    align-self: center;
 }
 
 .image{
