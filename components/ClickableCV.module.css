@@ -12,7 +12,7 @@
     display: flex;
     margin-top: 20px;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -35,13 +35,11 @@
     color: #005cc5;
 }
 
+.lines{
+    padding-left: 20px;
+}
+
 .line{
     display: block;
     margin: 5px 0px;
-}
-.AboutMe{
-    font-size: 2rem;
-    display: block;
-    font-weight: bold;
-    padding-bottom: 10px;
 }

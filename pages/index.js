@@ -15,6 +15,7 @@ const Home = ({ allCareerData }) => (
                 <br />
                 <br />
                 <br />
+                <br />
                 <div className={styles.row}>
                     <div className={styles.citation}>
                         <span className={styles.line1}>He who plants a Tree</span>
@@ -27,9 +28,10 @@ const Home = ({ allCareerData }) => (
                 </div>
             </Container>
         </div>
-        <Container>
+        <Container className={styles.ClickableCVContainer}>
             <ClickableCV />
-
+        </Container>
+        <Container className={styles.TimelineContainer}>
             <Timeline allCareerData={allCareerData} />
         </Container>
     </>
