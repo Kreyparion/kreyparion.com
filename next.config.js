@@ -1,4 +1,13 @@
 module.exports = {
+  reactStrictMode: true,
+  async rewrites() {
+      return [
+          {
+              source: '/robots.txt',
+              destination: '/api/robots'
+          }
+      ];
+  },
   async redirects() {
     return [
       {
