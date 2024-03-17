@@ -3,10 +3,10 @@
     text-decoration: none;
 }
 .tagButton{
-    background-color: #009090;
+    background-color: #f05555;
     color: white;
     padding: 0px 7px;
-    border-color: #006699;
+    border-color: #e02020;
     border-width: 1px;
     border-radius: 10px;
     margin: 2px;
@@ -14,7 +14,7 @@
     font-size: 0.9em;
 }
 .tagButton:hover{
-    background-color: #006699;
+    background-color: #e02020;
 }
 
 .linkButton{
