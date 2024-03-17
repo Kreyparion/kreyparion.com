@@ -5,7 +5,8 @@ import { Container } from 'react-bootstrap';
 import getSortedProjectsData from '../../lib/projects';
 import PropTypes from 'prop-types';
 
-export function metadata({ allProjectsData}){
+export async function generateMetadata(){
+    const allProjectpagesData = await getSortedProjectsData();
     const router = useRouter();
     const name = router.query.projects;
     const project = select(allProjectsData, name);

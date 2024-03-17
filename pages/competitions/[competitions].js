@@ -5,7 +5,8 @@ import { Container } from 'react-bootstrap';
 import getSortedCompetitionsData from '../../lib/competitions';
 import PropTypes from 'prop-types';
 
-export function generateMetadata({ allCompetitionsData}){
+export async function generateMetadata(){
+  const allCompetitionpagesData = await getSortedCompetitionsData();
   const router = useRouter();
   const name = router.query.competitions;
   const competition = select(allCompetitionsData, name);
