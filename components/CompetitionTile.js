@@ -4,9 +4,12 @@ import PrintMarkdown from './PrintMarkdown';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import style from './CompetitionTile.module.css';
+import { faMedal } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-export default function CompetitionTile({ id, date, title, abstract, content, tags, stags, image, links, linksDescription, rank}) {
+
+export default function CompetitionTile({ id, date, title, abstract, content, tags, stags, image, links, linksDescription, rank, leaderboard}) {
     const [rankNumber, totalNumber] = rank.split('/');
     let color = 'black';
     if (rankNumber == 1) {
@@ -23,9 +26,19 @@ export default function CompetitionTile({ id, date, title, abstract, content, ta
                     <div className={style.date}>
                         {date.slice(3)}
                     </div>
+                    {rank!="" &&
+                    leaderboard!="" ?
+                    <Link href={leaderboard} style={{textDecoration: 'none'}}>
+                        <div className={style.rank} style={{color: color}}>
+                            <FontAwesomeIcon icon={faMedal} style={{marginRight: '5px'}}/>
+                            {rank}
+                        </div>
+                    </Link>
+                    :
                     <div className={style.rank} style={{color: color}}>
+                        <FontAwesomeIcon icon={faMedal} style={{marginRight: '5px'}}/>
                         {rank}
-                    </div>
+                    </div>}
                 </div>
                 
                 <div className={style.content}>
