@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 
 import CompetitionTile from '../components/CompetitionTile';
 
+export const metadata = {
+    title: "Juien Cardinal's Competitions",
+    description: 'Every competition I have participated in.',
+};
 
 export default function Competitions({ allCompetitionsData }) {
     return (

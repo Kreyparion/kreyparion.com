@@ -5,8 +5,15 @@ import { Container } from 'react-bootstrap';
 import getSortedProjectsData from '../../lib/projects';
 import PropTypes from 'prop-types';
 
-import ProjectTile from '../../components/ProjectTile';
-
+export function metadata({ allProjectsData}){
+    const router = useRouter();
+    const name = router.query.projects;
+    const project = select(allProjectsData, name);
+    return {
+        title: project.title,
+        description: project.abstract,
+    };
+}
 
 function select(projects, pageId) {
     for (let i = 0; i < projects.length; i++) {

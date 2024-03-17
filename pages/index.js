@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 
 
 export const metadata = {
-    title: "Juien Cardinal's Portfolio",
+    title: "Juien Cardinal",
     description: 'Julien Cardinal is an AI Research Scientist specialising in RL and Optimisation Problems.',
 };
 

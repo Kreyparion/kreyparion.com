@@ -5,8 +5,15 @@ import { Container } from 'react-bootstrap';
 import getSortedCompetitionsData from '../../lib/competitions';
 import PropTypes from 'prop-types';
 
-import CompetitionTile from '../../components/CompetitionTile';
-
+export function generateMetadata({ allCompetitionsData}){
+  const router = useRouter();
+  const name = router.query.competitions;
+  const competition = select(allCompetitionsData, name);
+  return {
+      title: competition.title,
+      description: competition.abstract,
+  };
+}
 
 function select(competitions, pageId) {
     for (let i = 0; i < competitions.length; i++) {
