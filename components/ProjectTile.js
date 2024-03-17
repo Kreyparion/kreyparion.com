@@ -14,12 +14,16 @@ export default function ProjectTile({ id, date, title, abstract, content, tags, 
                 {date.slice(3)}
                 </div>
                 <div className={style.content}>
+                    {content!="" ? 
                     <Link href={`/projects/${id}`} className={style.link}>
                         <h3 className={style.title}>
                             {title}
                         </h3>
                     </Link>
-                    
+                    :
+                    <h3 className={style.title}>
+                        {title}
+                    </h3>}
                     <div className={style.tags}>
                         {tags.map((tag, index) => (
                             <OverlayTrigger

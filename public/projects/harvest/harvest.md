@@ -42,7 +42,7 @@ The DQN is originally from the [Pytorch DQN Tutorial](https://pytorch.org/tutori
 The network has 2 convolutional layers and 4 fully connected layers. The convolutional layers are preceded by a layer that adds the last collomn in the front and the first one in the back and does the same for the rows. This allows to make conviolution and taking into account the looped environment.
 These layers are the `Add sides` layers in the picture below
 
-<img src="docs/network.jpg" width="200" />
+<img src="network.jpg" width="200" />
 
 
 
