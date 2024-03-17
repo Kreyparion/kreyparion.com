@@ -1,15 +1,43 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import getSortedCompetitionsData from '../lib/competitions';
+import PropTypes from 'prop-types';
 
-const Competitions = () => (
-    <div>
-        <h1>Competitions</h1>
-        <p>
-            Short presentation of the kind of competitions
-        </p>
-        <p>
-            Display the competitions : Markdown files with the welle placed tags : place, hashtags for the techs
-        </p>
-    </div>
-);
+import CompetitionTile from '../components/CompetitionTile';
 
-export default Competitions;
+
+export default function Competitions({ allCompetitionsData }) {
+    return (
+      <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <Container>{allCompetitionsData.map(CompetitionTile)}</Container>
+      </div>
+    );
+}
+
+  
+export async function getStaticProps() {
+    const allCompetitionsData = getSortedCompetitionsData();
+
+    return {
+        props: {
+        allCompetitionsData,
+        },
+    };
+}
+  
+
+Competitions.propTypes = {
+    allCompetitionpagesData: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        abstract: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+      })
+    ),
+};
