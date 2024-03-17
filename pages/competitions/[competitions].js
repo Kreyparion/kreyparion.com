@@ -5,15 +5,14 @@ import { Container } from 'react-bootstrap';
 import getSortedCompetitionsData from '../../lib/competitions';
 import PropTypes from 'prop-types';
 
-export async function generateMetadata(){
-  const allCompetitionpagesData = await getSortedCompetitionsData();
-  const router = useRouter();
-  const name = router.query.competitions;
-  const competition = select(allCompetitionsData, name);
-  return {
-      title: competition.title,
-      description: competition.abstract,
-  };
+export async function generateMetadata({ params, allCompetitionsData }){
+    const name = params.competitions;
+  
+      const competition = select(allCompetitionsData, name);
+      return {
+          title: competition.title,
+          description: competition.abstract,
+      };
 }
 
 function select(competitions, pageId) {
