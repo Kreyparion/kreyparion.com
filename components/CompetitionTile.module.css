@@ -48,6 +48,15 @@
     margin-bottom: 15px;
 }
 
+.anchor{
+    margin-left: .3em;
+    color: #888;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+
 .rank{
     font-weight: bold;
 }

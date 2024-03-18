@@ -6,7 +6,8 @@ import Link from 'next/link';
 import style from './CompetitionTile.module.css';
 import { faMedal } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { faLink } from '@fortawesome/free-solid-svg-icons';
+import copy from 'copy-to-clipboard';
 
 
 export default function CompetitionTile({ id, date, title, abstract, content, tags, stags, image, links, linksDescription, rank, leaderboard}) {
@@ -19,8 +20,13 @@ export default function CompetitionTile({ id, date, title, abstract, content, ta
     } else if (rankNumber/totalNumber < 0.5) {
         color = 'bronze';
     }
+    const [hidden, setHidden] = useState(true);
+    const [show, setShow] = useState(false);
     return (
-        <Row>
+        <Row
+        id={id}
+        key={id}
+        >
             <Col className={style.tile}>
                 <div className={style.leftContainer}>
                     <div className={style.date}>
@@ -42,16 +48,44 @@ export default function CompetitionTile({ id, date, title, abstract, content, ta
                 </div>
                 
                 <div className={style.content}>
-                    {content!="" ? 
-                    <Link href={`/competitions/${id}`} className={style.link}>
-                        <h3 className={style.title}>
-                            {title}
-                        </h3>
-                    </Link>
-                    :
-                    <h3 className={style.title}>
+                <h3
+                    onMouseEnter={() => {
+                        setHidden(false);
+                    }}
+                    onMouseLeave={() => {
+                        setHidden(true);
+                    }}
+                    className={style.title}
+                    >
+                    {content !== '' ?
+                        <Link href={`/competitions/${id}`} className={style.link}>
                         {title}
-                    </h3>}
+                        </Link>
+                    :
+                        title
+                    }
+                    <OverlayTrigger
+                        placement='top'
+                        show={show && !hidden}
+                        overlay={<Tooltip>Copied !</Tooltip>}
+                    >
+                        <FontAwesomeIcon
+                        icon={faLink}
+                        hidden={hidden}
+                        className={style.anchor}
+                        onClick={() => {
+                            // Copy link to clipboard
+                            copy(`${window.location.origin}/competitions#${id}`);
+
+                            // Activate overlay
+                            setShow(true);
+                            setTimeout(() => {
+                            setShow(false);
+                            }, 1000);
+                        }}
+                        />
+                    </OverlayTrigger>
+                    </h3>
                     <div className={style.tags}>
                         {tags.map((tag, index) => (
                             <OverlayTrigger
@@ -78,7 +112,13 @@ export default function CompetitionTile({ id, date, title, abstract, content, ta
                     
                 </div>
                 <div className={style.imagecontainer}>
+                    {content !== '' ?
+                    <Link href={`/competitions/${id}`}>
+                        <img src={`/competitions/${id}/${image}`} alt={title} className={style.image}/>
+                    </Link>
+                    :
                     <img src={`/competitions/${id}/${image}`} alt={title} className={style.image}/>
+                    }
                 </div>
             </Col>
         </Row>

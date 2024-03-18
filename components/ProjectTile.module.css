@@ -39,6 +39,14 @@
     margin-bottom: 25px;
 }
 
+.anchor{
+    margin-left: .3em;
+    color: #888;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
 .date{
     padding-top: 5px;
     padding-right: 25px;
