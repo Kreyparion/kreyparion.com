@@ -51,7 +51,7 @@ export default function PrintMarkdown({ text, id }) {
         createElement,
         components: {
           a: CustomLink,
-          img: ({ src, ...rest }) => <img src={id +"/" + src} {...rest} />,
+          img: ({ src, ...rest }) => <img src={id +"/" + src} style={{ maxWidth: '100%' }} {...rest} />,
           p: ({ children, ...rest }) => <p className={style.paragraph} {...rest}>{children}</p>,
         },
         Fragment,
