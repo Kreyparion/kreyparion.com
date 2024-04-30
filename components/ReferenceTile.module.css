@@ -5,6 +5,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    min-width: 300px;
 }
 .title{
     text-align: center;

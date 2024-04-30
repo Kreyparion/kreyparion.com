@@ -1,6 +1,7 @@
 import React from 'react';
 import ReferenceTile from '../components/ReferenceTile';
 import { Container } from 'react-bootstrap';
+import { min } from 'd3';
 
 const References = () => (
     <div>
@@ -26,6 +27,7 @@ const References = () => (
             <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', marginTop: '10px' }}>
                 <ReferenceTile title="UCL Course on RL" author="David Silver" description="After almost 10 years and it is still the reference to learn RL" img="references/david_silver.jpg" link="https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ" date=""/>
                 <ReferenceTile title="M2 MVA Convex Optimization, Algorithms and Applications" author="Alexandre d'Aspremont" description="Great Course on Convex Optimization" img="references/Alexandre_aspremont.png" link="https://www.di.ens.fr/~aspremon/OptConvexeM2.html" date=""/>
+                <ReferenceTile title="Automatants - Full AI Course" author="Automatants : AI Association of Centralesupelec" description="AI Course (in french)" img="references/Automatants.png" link="https://automatants.cs-campus.fr/formations" date=""/>
             </div>
         </Container>
     </div>
