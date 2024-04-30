@@ -12,6 +12,7 @@
 }
 .image{
     max-height: 250px;
+    max-width: 100%;
     margin-top: 10px;
     display: block;
     margin-left: auto;

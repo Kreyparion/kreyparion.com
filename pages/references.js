@@ -28,7 +28,6 @@ const References = () => (
                 <ReferenceTile title="M2 MVA Convex Optimization, Algorithms and Applications" author="Alexandre d'Aspremont" description="Great Course on Convex Optimization" img="references/Alexandre_aspremont.png" link="https://www.di.ens.fr/~aspremon/OptConvexeM2.html" date=""/>
             </div>
         </Container>
-        <div>a</div>
     </div>
 );
 
