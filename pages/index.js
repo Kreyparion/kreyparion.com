@@ -60,7 +60,7 @@ Timeline.propTypes = {
     allCareerData: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
+        period: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         abstract: PropTypes.string.isRequired,
       })
